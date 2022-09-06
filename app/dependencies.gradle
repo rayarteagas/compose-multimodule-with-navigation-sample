@@ -1,0 +1,73 @@
+ext.base = {_ ->
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
+    ui()
+    coroutines()
+}
+
+ext.test = {_ ->
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
+
+ext.ui = {_ ->
+    implementation("androidx.appcompat:appcompat:1.3.1")
+    implementation("com.google.android.material:material:1.4.0")
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
+}
+
+
+ext.coroutines = {_ ->
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1")
+}
+
+ext.compose = { String version ->
+    implementation("androidx.compose.ui:ui:$version")
+    implementation("androidx.compose.ui:ui-tooling:$version")
+    implementation("androidx.compose.foundation:foundation:$version")
+    implementation("androidx.compose.material:material:$version")
+    implementation("androidx.compose.material:material-icons-core:$version")
+    implementation("androidx.compose.material:material-icons-extended:$version")
+    implementation("androidx.compose.runtime:runtime-livedata:$version")
+    implementation 'androidx.compose.material3:material3:1.0.0-alpha10'
+    implementation("androidx.activity:activity-compose:1.4.0")
+    implementation("com.google.accompanist:accompanist-swiperefresh:0.24.7-alpha")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$version")
+
+    debugImplementation("androidx.compose.ui:ui-tooling:$version")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:$version")
+
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$version")
+}
+
+ext.navigation = {String version ->
+    implementation("androidx.navigation:navigation-fragment:$version")
+    implementation("androidx.navigation:navigation-ui:$version")
+    implementation("androidx.navigation:navigation-fragment-ktx:$version")
+    implementation("androidx.navigation:navigation-ui-ktx:$version")
+    implementation("androidx.navigation:navigation-dynamic-features-fragment:$version")
+    implementation("androidx.navigation:navigation-compose:$version")
+}
+
+ext.test = {String version ->
+    implementation("junit:junit:$version")
+    implementation("com.google.truth:truth:1.1.3")
+}
+
+ext.implementation = { String dependency ->
+    getDependencies().add("implementation", dependency)
+}
+ext.debugImplementation = { String dependency ->
+    getDependencies().add("debugImplementation", dependency)
+}
+ext.androidTestImplementation = { String dependency ->
+    getDependencies().add("androidTestImplementation", dependency)
+}
+ext.testImplementation = { String dependency ->
+    getDependencies().add("testImplementation", dependency)
+}
